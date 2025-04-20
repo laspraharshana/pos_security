@@ -4,7 +4,9 @@ import com.university.pos.posbackend.reporting.model.CustomerReportData;
 import com.university.pos.posbackend.reporting.model.FinancialReportData;
 import com.university.pos.posbackend.reporting.model.InventoryReportData;
 import com.university.pos.posbackend.reporting.model.SalesReportData;
+import com.university.pos.posbackend.reporting.service.DefaultReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ public class ReportController {
     private final DefaultReportService reportService;
 
     @Autowired
-    public ReportController(DefaultReportService reportService) {
+    public ReportController(@Qualifier("salesReportService") DefaultReportService reportService) {
         this.reportService = reportService;
     }
 
