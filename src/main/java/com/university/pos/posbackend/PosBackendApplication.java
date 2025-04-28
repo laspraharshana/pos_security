@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PosBackendApplication {
-    //Welcome to My Point of Sales System.
+
+    //This Is Something Different From The Previous Message 
+
     public static void main(String[] args) {
         SpringApplication.run(PosBackendApplication.class, args);
     }
