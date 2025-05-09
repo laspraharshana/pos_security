@@ -1,12 +1,11 @@
-package com.university.pos.posbackend; // Make sure this package matches your project structure
+package com.university.pos.posbackend;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-// Removed: import lombok.Data; // No longer using Lombok's @Data
-import lombok.ToString; // Keep this if you might use Lombok's @ToString elsewhere or need to exclude fields from manual toString
+import lombok.ToString;
 
 @Entity
 @Table(name = "inventory")
-// Removed: @Data // Replaced with manual methods below
 public class Inventory {
 
     @Id
@@ -20,10 +19,11 @@ public class Inventory {
     // Relationship to Product (One Inventory record belongs to One Product)
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false, unique = true) // FK column name
+    @JsonBackReference // Back part of the relationship, will be omitted during full serialization
     @ToString.Exclude // Exclude from Lombok toString to prevent recursion with Product
     private Product product;
 
-    // --- Manual Getters and Setters ---
+    // --- MANUAL GETTERS AND SETTERS ---
 
     public Integer getInventoryId() {
         return inventoryId;
