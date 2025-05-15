@@ -12,7 +12,13 @@ public interface ProductService {
     List<Product> getAllProducts();
     Product updateProduct(Integer id, Product productDetails);
     void deleteProduct(Integer id);
-    // You might want separate methods for updating stock, or handle it within updateProduct/Sales logic
+    //You might want separate methods for updating stock, or handle it within updateProduct/Sales logic
     void updateStock(Integer productId, int changeInQuantity);
     int getStock(Integer productId);
+    List<Product> getAllProductsWithInventory(); // Add this line
+
+
+
+
+
 }
